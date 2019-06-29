@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>history-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Search-History" transform="translate(1.000000, -3.000000)">
+            <g id="history-icon" transform="translate(0.000000, 4.000000)">
+                <polyline id="Path" stroke="#FFFFFF" stroke-linecap="square" points="7 4 7 8 11 8"></polyline>
+                <path d="M0,7.5002317 C5.05328939e-05,3.94275436 2.49942892,0.874803939 5.98347575,0.155602723 C9.46752257,-0.563598492 12.9774624,1.26386661 14.3862209,4.53052777 C15.7949794,7.79718894 14.7148801,11.6040931 11.8004788,13.6442013 C8.88607755,15.6843095 4.93938887,15.396204 2.35216316,12.9544809" id="Path" stroke="#FFFFFF"></path>
+                <polygon id="Path" fill="#FFFFFF" fill-rule="nonzero" points="0 11 4 11.2352941 1.33333333 15"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

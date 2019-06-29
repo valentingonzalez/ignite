@@ -21,6 +21,14 @@ h1 {
     font-size: 50px;
     margin: 0 0 15px 0;
 }
+h2 {
+    font-size: 36px;
+    margin: 0 0 15px 0;
+}
+h3 {
+    font-size: 24px;
+    margin: 0 0 15px 0;
+}
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Oswald';
@@ -41,6 +49,37 @@ a.link:hover {
 }
 
 
+form input:not([type=checkbox]),
+form input:not([type=radio]) {
+    height: 44px;
+    line-height: 44px;
+    font-size: 17px;
+    border-radius: 22px;
+    border: none;
+    padding: 0 20px;
+    background-color: rgba(255,255,255,.1);
+    color: #fff;
+}
+form input[type=search] {
+    background-image: url('assets/images/search-icon.svg');
+    background-position: 15px 50%;
+    background-size: 18px 17px;
+    padding-left: 50px;
+}
+.btn-primary {
+    background: #7Fda29;
+    background: linear-gradient(145deg, #7Fda29 0%, #00ab45 100%);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    height: 46px;
+    display: inline-block;
+    line-height: 46px;
+    padding: 0 50px;
+    min-width: 150px;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -52,6 +91,10 @@ a.link:hover {
     align-items: center;
     justify-items: center;
     height: 100%;
+}
+.flex-col {
+    flex-direction: column;
+    align-items: flex-start;
 }
 .site-title,.site-description {
     display: none !important;
@@ -82,13 +125,28 @@ a.link:hover {
     margin-left: 0;
 }
 
+header#mainHeader {
+    padding-bottom: 10px;
+}
 .header-top {
     height: 110px;
 }
-
 .header-top .search-bar {
     flex: 1 1 auto;
     padding: 0 45px;
+    transition: right .4s;
+}
+#mainHeader .search-bar form {
+    position: relative;
+}
+.header-top .search-bar .cancel-bt {
+    width: 0;
+    transition: width .5s;
+    overflow: hidden; 
+    white-space: nowrap;
+    position: absolute;
+    right: -60px;
+    top: 10px;
 }
 .header-top .search-bar input[type=search] {
     width: 100%;
@@ -96,6 +154,10 @@ a.link:hover {
 .header-top .user-bar {
     text-transform: uppercase;
     line-height: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 176px;
+    transition: width .4s;
 }
 .header-top .user-bar .text {
     font-size: 12px;
@@ -118,7 +180,7 @@ a.link:hover {
     background-image: url('assets/images/delivery-icon.svg');
     background-size: 20px 25px;
     padding-left: 30px;
-    background-position: 0 center;
+    background-position: 0 50%;
     margin-right: 40px;
 }
 .header-bottom .shop-options .delivery .est-time {
@@ -137,38 +199,24 @@ a.link:hover {
 }
 
 
-form input:not([type=checkbox]),
-form input:not([type=radio]) {
-    height: 44px;
-    line-height: 44px;
-    font-size: 17px;
-    border-radius: 22px;
-    border: none;
-    padding: 0 20px;
-    background-color: rgba(255,255,255,.1);
-    color: #fff;
-}
-form input[type=search] {
-    background-image: url('assets/images/search-icon.svg');
-    background-position: 15px 50%;
-    background-size: 18px 17px;
-    padding-left: 50px;
-}
+
+
 
 #app {
 
 }
 section {
-    min-height: calc(100vh - 160px);
+    min-height: calc(100vh - 170px);
 }
 section#success {
     background: url(assets/images/bg-3.jpg) no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: 50%;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 40px;
 }
 section#success #success-message .logo {
     margin-bottom: 55px;
@@ -180,16 +228,212 @@ section#success #success-message .message {
 
 
 
-.btn-primary {
-    background: #7Fda29;
-    background: linear-gradient(145deg, #7Fda29 0%, #00ab45 100%);
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
+#searchOverlay {
+    transition: height .5s;
+    position: absolute;
+    width: 100%;
+    top: 110px;
+    height: 0;
+    background: #16161f;
+    overflow: hidden;
+}
+#searchOverlay > .container {
+    padding: 0 20px;
+}
+body.searching #searchOverlay {
+    height: calc(100vh - 110px);
+}
+body.searching .header-top .search-bar .cancel-bt {
+    width: 44px;
+}
+body.searching .header-top .user-bar {
+    width: 0;
+}
+
+
+#searchRecent .recent-searches-item a {
+    background-image: url('assets/images/history-icon.svg');
+    background-size: 15px;
+    background-position: 0 50%;
+    padding: 5px 0 5px 25px;
+    display: block;
+    opacity: .4;
+    font-size: 18px;
+}
+#searchRecent .recent-searches-item a:hover {
+    opacity: 1;
+}
+#searchRecent,
+#searchCategories {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.categories-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+}
+.category-item a {
+    background-size: cover;
+    height: 125px;
+    position: relative;
+    padding: 12px 15px;
+    display: block;
     border-radius: 5px;
-    height: 46px;
-    display: inline-block;
-    line-height: 46px;
-    padding: 0 50px;
-    min-width: 150px;
+    transition: text-shadow .3s;
+}
+.category-item a:hover::before {
+    opacity: 0;
+}
+.category-item a:hover {
+    text-shadow: 3px 3px 6px rgba(0,0,0,.6);
+}
+.category-item a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity .3s;
+    background: linear-gradient(145deg, rgba(0,0,0,.2) 0%, rgba(0,0,0,.5) 100%);
+}
+.category-item .category-name {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (max-width:961px)  {
+    .categories-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    section {
+        min-height: calc(100vh - 186px);
+    }
+    #mainHeader nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #181822;
+    }
+    #mainHeader nav .menu-item {
+        flex: 1;
+    }
+    #mainHeader nav .menu-item a {
+        display: block;
+        text-align: center;
+        height: 74px;
+        margin: 0;
+        padding: 12px 10px 0 10px;
+    }
+    #mainHeader nav .menu-item a .icon {
+        display: block;
+        margin: 0 auto 2px auto;
+    }
+    #mainHeader .user-bar {
+        position: absolute;
+        display: none;
+    }
+    #mainHeader {
+        padding: 25px 0 15px;
+        height: 186px;
+    }
+    #mainHeader .container {
+        flex-direction: column;
+    }
+    #mainHeader .header-top {
+        height: 60px;
+    }
+    #mainHeader .header-top .search-bar .cancel-bt{
+        right: -4px;
+        top: 10px;
+        font-size: 14px;
+    }
+
+    #mainHeader .search-bar input[type=search] {
+        transition: width .4s;
+    }
+    .searching #mainHeader .search-bar input[type=search] {
+        width: calc(100% - 60px);
+    }
+
+    #mainHeader .header-bottom {
+        height: 44px;
+        padding: 5px 0;
+        background: #2b2b37;
+    }
+    #mainHeader .logo {
+        width: 60px !important;
+    }
+    #mainHeader .search-bar {
+        padding: 0;
+        font-size: 16px;
+        position: absolute;
+        left: 30px;
+        right: 30px;
+        top: 140px;
+    }
+    #mainHeader .search-bar input[type=search] {
+        height: 36px;
+        font-size: 16px;
+    }
+    #mainHeader .shop-options {
+        width: 100%;
+    }
+    #mainHeader .shop-options .delivery {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-size: 14px 18px;
+        margin: 0 5px 0 5px;
+    }
+    #mainHeader .shop-options .delivery .to {
+        flex-grow: 1;
+    }
+    #mainHeader .shop-options .delivery .est-time {
+        font-size: 11px;
+        text-align: right;
+    }
+    #mainHeader .shop-options .delivery .est-time .data {
+        display: block;
+        font-size: 16px;
+        text-transform: none;
+    }
+    #mainHeader .shop-options .cart {
+        position: absolute;
+        right: 10px;
+        top: 12px;
+    }
+    #searchOverlay {
+        top: 186px;
+    }
+}  
+
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:741px)  {
+    .categories-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (max-width:581px)  {
+    .categories-list {
+        grid-template-columns: 1fr 1fr;
+    }
+    .container {
+        padding: 0 20px;
+    }
+    #mainHeader .search-bar {
+        left: 20px;
+        right: 20px;
+    }
 }
