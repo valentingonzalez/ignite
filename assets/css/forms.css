@@ -1,0 +1,102 @@
+@charset "UTF-8";
+.s-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+form input:not([type=checkbox]),
+form input:not([type=radio]) {
+    height: 44px;
+    line-height: 44px;
+    font-size: 17px;
+    border-radius: 22px;
+    border: none;
+    padding: 0 20px;
+    background-color: rgba(255,255,255,.1);
+    color: #fff;
+}
+form input[type=search] {
+    background-image: url('../images/search-icon.svg');
+    background-position: 15px 50%;
+    background-size: 18px 17px;
+    padding-left: 50px;
+}
+.form-radio,
+.form-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    color: #666;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
+    border: 2px solid #394343;
+    transition: .2s ease-out;
+}
+.form-checkbox {
+     border-radius: 3px;
+}
+.form-radio {
+     border-radius: 100%;
+}
+.form-radio:checked::before,
+.form-checkbox:checked::before {
+    position: absolute;
+    left: 4px;
+    top: 3px;
+    width: 100%;
+    height: 100%;
+    content: url('../images/tic.svg');
+}
+.form-radio:hover, .form-checkbox:hover {
+    border-color: #fff;
+}
+.form-radio:checked, .form-checkbox:checked {
+    background-color: #fff;
+    border: none;
+}
+label {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+} 
+
+/* select */
+label + select {
+    margin-left: 20px;
+}
+label.label-big {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+select {
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Source Sans Pro';
+    padding: 0 4.5em 0 15px;
+    font-size: 16px;
+    height: 44px;
+    line-height: 44px;
+    box-sizing: border-box;
+    margin: 0;
+    border-radius: .5em;
+    border: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #28262b;
+    background-image: url('data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjhweCIgaGVpZ2h0PSI0cHgiIHZpZXdCb3g9IjAgMCA4IDQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjMgKDU3NTQ0KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IkRlc2t0b3AiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJTZWFyY2gtUmVzdWx0cyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE2MjYuMDAwMDAwLCAtMjA4LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTMwNy4wMDAwMDAsIDE4OC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJQYXRoIiBwb2ludHM9IjMxOSAyMCAzMjMgMjQgMzI3IDIwIj48L3BvbHlnb24+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==');
+    background-position: right 15px top 50%;
+}
+select::-ms-expand {
+    display: none;
+}
+select:focus {
+    outline: none;
+}
+
+
