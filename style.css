@@ -413,8 +413,38 @@ body.searching .header-top .user-bar {
     display: block;
     top: -20px;
     width: 55%;
-    filter: drop-shadow(0 14px 8px rgba(0,0,0,.2));
-    transition: all .8s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    transition: top .8s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    transform: translate3d(0, 0, 0);
+    animation: product-zoomout .3s;
+    -webkit-animation: product-zoomout .3s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+.product .product-pic img {
+    width: 100%;
+}
+.product:hover .product-pic {
+    top: -30px;
+    animation: product-zoomin .3s;
+    -webkit-animation: product-zoomin .3s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+@keyframes product-zoomin {
+    0% {filter: drop-shadow(0 14px 8px rgba(0,0,0,.2))}
+    100% {filter: drop-shadow(0 24px 10px rgba(0,0,0,.4))}
+}
+@keyframes product-zoomout {
+    0% {filter: drop-shadow(0 24px 10px rgba(0,0,0,.4))}
+    100% {filter: drop-shadow(0 14px 8px rgba(0,0,0,.2))}
+}
+@-webkit-keyframes product-zoomin {
+    0% {-webkit-filter: drop-shadow(0 14px 8px rgba(0,0,0,.2))}
+    100% {-webkit-filter: drop-shadow(0 24px 10px rgba(0,0,0,.4))}
+}
+@-webkit-keyframes product-zoomout {
+    0% {-webkit-filter: drop-shadow(0 24px 10px rgba(0,0,0,.4))}
+    100% {-webkit-filter: drop-shadow(0 14px 8px rgba(0,0,0,.2))}
 }
 .product .add-to-cart-bt {
     position: absolute;
@@ -485,10 +515,6 @@ body.searching .header-top .user-bar {
 }
 
 
-.product:hover .product-pic {
-    top: -30px;
-    filter: drop-shadow(0px 24px 10px rgba(0,0,0,.4));
-}
 
 
 
